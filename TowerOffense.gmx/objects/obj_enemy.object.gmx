@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<object>
+  <spriteName>spr_enemy</spriteName>
+  <solid>0</solid>
+  <visible>-1</visible>
+  <depth>0</depth>
+  <persistent>0</persistent>
+  <maskName>&lt;undefined&gt;</maskName>
+  <parentName>&lt;undefined&gt;</parentName>
+  <events>
+    <event enumb="0" eventtype="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_speed = 0;&#13;
+alarm[0] = 10;&#13;
+nextpos = 3;&#13;
+hlth = 1;&#13;
+cooldown = 0;&#13;
+bnty = hlth;&#13;
+var nm;</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>score += bnty;</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (nextpos == 0) {&#13;
+	x -= 12;&#13;
+}else if (nextpos == 1) {&#13;
+	y -= 12;&#13;
+}else if (nextpos == 2) {&#13;
+	x += 12;&#13;
+}else if (nextpos == 3) {&#13;
+	y += 12;&#13;
+}else if (nextpos == 4) {&#13;
+	instance_destroy();&#13;
+}&#13;
+&#13;
+alarm[0] = 20;</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (hlth &lt; 1) {&#13;
+	instance_destroy();&#13;
+}&#13;
+&#13;
+if (cooldown &gt; 0) {&#13;
+	cooldown--;&#13;
+}&#13;
+if (hlth &gt; 14) {&#13;
+	image_index = 2;&#13;
+}else if (hlth &gt; 4) {&#13;
+	image_index = 1;&#13;
+}else{&#13;
+	image_index = 0;&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_ratio" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (cooldown == 0/* &amp;&amp; other.type == 0*/) {&#13;
+	hlth -= 1;&#13;
+	cooldown = 10;&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_road" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (other.nmbr == 13 or other.nmbr == 17 or other.nmbr == 37) {&#13;
+	nextpos = 0;&#13;
+}else if (other.nmbr == 15 or other.nmbr == 27) {&#13;
+	nextpos = 1;&#13;
+}else if (other.nmbr == 6 or other.nmbr == 25 or other.nmbr == 29) {&#13;
+	nextpos = 2;&#13;
+}else if (other.nmbr == 2 or other.nmbr == 9 or other.nmbr == 21 or other.nmbr == 33) {&#13;
+	nextpos = 3;&#13;
+}else if (other.nmbr == 1) {&#13;
+	nextpos = 4;&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
+  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObjectSensor>0</PhysicsObjectSensor>
+  <PhysicsObjectShape>0</PhysicsObjectShape>
+  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
+  <PhysicsObjectRestitution>0.1</PhysicsObjectRestitution>
+  <PhysicsObjectGroup>0</PhysicsObjectGroup>
+  <PhysicsObjectLinearDamping>0.1</PhysicsObjectLinearDamping>
+  <PhysicsObjectAngularDamping>0.1</PhysicsObjectAngularDamping>
+  <PhysicsObjectFriction>0.2</PhysicsObjectFriction>
+  <PhysicsObjectAwake>-1</PhysicsObjectAwake>
+  <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
+  <PhysicsShapePoints/>
+</object>
